@@ -1,6 +1,7 @@
 # Symfony based forum
-* Bootstrap4
-* Symfony
+* `Bootstrap4`
+* `Symfony`
+* `Postgres SQL`
 ##
 
 * Registration
@@ -13,4 +14,4 @@
 
 #
 
-*Todo: Comments to the post, ig*
+*`Todo`: Comments to the post, ig*
