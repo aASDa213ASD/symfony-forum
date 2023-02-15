@@ -1,0 +1,37 @@
+security:
+  encoders:
+    App\Entity\User:
+      algorithm: bcrypt
+
+  providers:
+    our_db_provider:
+      entity:
+        class: App\Entity\User
+        property: email
+
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+
+    main:
+      anonymous: ~
+      provider: our_db_provider
+      form_login:
+        login_path: login
+        check_path: login
+        default_target_path: forum
+      logout:
+        path: logout
+        target: forum
+
+  access_control:
+    - { path: ^/admin, roles: ROLE_ADMIN }
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/profile, roles: ROLE_USER }
+    - { path: ^/post/\d+/delete$, methods: [DELETE], access: 'is_granted(''delete'', post)', requirements: { id: '\d+' } }
+    - { path: ^/post/\d+/edit$, methods: [EDIT], access: 'is_granted(''edit'', post)', requirements: { id: '\d+' } }
+
+  voters:
+        App\Security\PostVoter:
+            argument: [ '@security.token_storage' ]

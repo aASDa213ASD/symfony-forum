@@ -1,0 +1,59 @@
+{% include 'styles.html.twig' %}
+{% include 'navbar.html.twig' %}
+
+{% block body %}
+    {% if app.user is not null %}
+            <form method="post" action="{{ path('post_new') }}">
+                <button class="classButton createPost">Create new post</button>
+            </form>
+    {% endif %}
+    {% if posts|length == 0 %}
+        <a>No posts found.</a>
+    {% else %}
+        <div id="post-preview">
+            <h4 id="title"><strong></strong></h4>
+            <a id="description"></a>
+            <a><i class="description" id="author"></i></a>
+        </div>
+        {% for post in posts %}
+            <br>
+            <button type="submit" class="classButton post-title-button" id="post-{{ post.id }}-button">Post: <b>{{ post.title }}</b></button>
+            <div id="spoiler">
+                <pre>
+<code class="post-content">{{ post.description }}</code>
+                </pre>
+            <div id="post-databar">
+                <form method="post" action="{{ path('post_show', {id: post.id}) }}">
+                    <button class="classButton post-databar-button">Open</button>
+                </form>
+                <button class="classButton post-databar-button" id="post-{{ post.id }}-button">View</button>
+            </div>
+            </div>
+            <br>
+        {% endfor %}
+    <script>
+        const postButtons = document.querySelectorAll('button[id^="post-"]');
+        postButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+            const postId = button.id.split('-')[1];
+            showPostContext(postId);
+            });
+        });
+
+        function showPostContext(postId) {
+            const url = `/post/${postId}/data`;
+            const postTitle = document.getElementById('title');
+            const postDescription = document.getElementById('description');
+            const postAuthor = document.getElementById('author');
+
+            fetch('/post/' + postId + '/data')
+            .then(response => response.json())
+            .then(data => {
+                postTitle.innerHTML = "<strong>" + data['title'] + "</strong>";
+                postDescription.innerHTML = data['description'] + "<hr>";;
+                postAuthor.innerHTML = "- Created by " + data['author'];
+            });
+        }
+    </script>
+    {% endif %}
+{% endblock %}

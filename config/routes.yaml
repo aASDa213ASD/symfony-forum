@@ -1,0 +1,39 @@
+home:
+  path: /
+  controller: App\Controller\ForumController::index
+
+registration:
+  path: /register
+  controller: App\Controller\RegistrationController::register
+
+login:
+  path: /login
+  controller: App\Controller\SecurityController::login
+
+forum:
+  path: /forum
+  controller: App\Controller\ForumController::index
+  methods: [GET]
+
+post_new:
+  path: /new
+  controller: App\Controller\PostController::create
+
+post_show:
+  path: /post/{id}
+  controller: App\Controller\PostController::show
+
+post_delete:
+  path: /post/{id}/delete
+  controller: App\Controller\PostController::delete
+  methods: [POST]
+
+post_edit:
+  path: /post/{id}/edit
+  controller: App\Controller\PostController::edit
+  methods: [POST]
+
+post_data:
+  path: /post/{id}/data
+  controller: App\Controller\PostController::getPostContext
+  methods: [GET]

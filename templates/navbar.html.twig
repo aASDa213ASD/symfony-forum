@@ -1,0 +1,31 @@
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <a class="navbar-brand" href="{{ path('forum') }}">> Private forum</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto align-items-center">
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{{ app.user.username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="{{ path('app_logout') }}">
+                            <button class="classButton" id="navbar_btn">Leave</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <form method="post" action="{{ path('app_login') }}">
+                            <button class="classButton" id="navbar_btn">Login</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                    <form method="post" action="{{ path('app_register') }}">
+                        <button class="classButton" id="navbar_btn">Register</button>
+                    </form>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <hr>
+{% endblock %}

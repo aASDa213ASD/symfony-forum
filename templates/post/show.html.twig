@@ -1,0 +1,39 @@
+{% include 'styles.html.twig' %}
+{% include 'navbar.html.twig' %}
+
+<div class="centralized">
+    <h1><strong>{{ post.title }}</strong></h1>
+    <p>{{ post.description }}</p>
+</div>
+    <div class="centralized">
+        <p><i class='description'>Created by: {{ post.author}}</i></p>
+    </div>
+    <div class="inlineflex">
+        <a>Created at: {{ post.getCreatedAt|date('Y-m-d H:i:s') }}</a>
+        <br>
+        <a>Updated at: {{ post.getUpdatedAt|date('Y-m-d H:i:s') }}</a>
+    </div>
+    
+    {% if app.user is not null and post.author == app.user.username %}
+        <hr>
+        <div class="oneline">
+            <form method="GET" action="{{ path('forum') }}" class="paddingForm">
+                <button type="submit" class="classButton">Forum</button>
+            </form>
+            <form method="POST" action="{{ path('post_edit', {'id': post.id}) }}" class="paddingForm">
+                <input type="hidden" name="_method" value="EDIT">
+                <button type="submit" class="classButton">Edit</button>
+            </form>
+            <form method="POST" action="{{ path('post_delete', {'id': post.id}) }}" class="paddingForm">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="classButton">Delete</button>
+            </form>
+        </div>
+    {% else %}
+        <hr>    
+        <div class="oneline">
+            <form method="GET" action="{{ path('forum') }}" class="paddingForm">
+                <button type="submit" class="classButton">Forum</button>
+            </form>
+        </div>
+{% endif %}

@@ -1,0 +1,15 @@
+{% include 'styles.html.twig' %}
+{% include 'navbar.html.twig' %}
+
+<div class="centralized">
+    <h1><strong>{{ post.title }}</strong></h1>
+    <p>{{ post.description }}</p>
+</div>
+<div class="centralized">
+    <p><i class='description'>Created by: {{ post.author}}</i></p>
+</div>
+<div class="inlineflex">
+    <a>Created at: {{ post.getCreatedAt|date('Y-m-d H:i:s') }}</a>
+    <br>
+    <a>Updated at: {{ post.getUpdatedAt|date('Y-m-d H:i:s') }}</a>
+</div>

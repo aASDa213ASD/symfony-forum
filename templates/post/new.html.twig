@@ -1,0 +1,17 @@
+{% include 'styles.html.twig' %}
+{% include 'navbar.html.twig' %}
+
+<div class="centralized">
+    {{ form_start(form) }}
+
+    {{ form_row(form.title, {
+            label: 'Create a new post:⠀'
+    }) }}
+    <a>Description:</a>
+    {{ form_row(form.description, {
+            label: '⠀'
+    }) }}
+    
+    <button type="submit" class="classButton">Create</button>
+    {{ form_end(form) }}
+</div>

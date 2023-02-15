@@ -1,0 +1,311 @@
+@font-face {
+    src: url(../fonts/ProggyClean.ttf);
+    font-family: proggy;
+}
+
+body, html {
+    background-color:black;
+    color: white;
+    font-family: "proggy";
+    font-weight: lighter;
+    font-size: 40px;
+    margin:15px;
+}
+
+::selection {
+    background-color:#515151;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgb(90, 90, 90);
+}
+
+a:link {
+    text-decoration: none;
+    color: rgb(0, 255, 162);
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(0, 255, 162);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea {
+    outline: none;
+    text-align: center;
+    background-color: #000000;
+    border: 1px solid #515151;
+    font-family: "proggy";
+    font-size:25px;
+    color:white;
+    width:150px;
+}
+
+textarea {
+    resize: none;
+    font-size: 30px;
+    width: 50%;
+    height: 50%;
+    text-align: left;
+    padding: 20px;
+}
+
+pre {
+    overflow-x: hidden;
+}
+
+input[type="submit"] {
+    outline: none;
+    background-color: #262626;
+    border: 1px solid #515151;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    font-family: "proggy";
+}
+
+input[type="submit"]:hover {
+    background-color: #a1a1a1;
+}
+
+input[type="submit"]:disabled,
+input[type="text"]:disabled,
+button[type="submit"]:disabled {
+   background-color: #262626;
+   color: gray;
+}
+
+.disabled {
+    color:#a1a1a1;
+}
+
+#inputsmall {
+    width: 50px;
+}
+
+#inputmedium {
+    width: 80px;
+}
+
+.classButton {
+    outline: none;
+    background-color: #262626;
+    border: 1px solid #515151;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    font-family: "proggy";
+}
+
+.paddingForm {
+    padding: 5px;
+}
+
+button:hover {
+    background-color: #a1a1a1;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #262626;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: -20px;
+}
+  
+.tab {
+    width: 100px;
+    height: 5px;
+    padding-bottom: 18px;
+    padding-top: 2px;
+    margin: 5px;
+    text-align: center;
+    background-color: #262626;
+    border: 1px solid #515151;
+    cursor: pointer;
+}
+  
+.tab.active {
+    background-color: #a1a1a1;
+}
+  
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+  
+.tab-content.active {
+    display: block;
+}
+
+.project-list a:visited {
+    text-decoration: none;
+    color: rgb(255, 62, 117);
+}
+
+.project-list a:link {
+    text-decoration: none;
+    color: rgb(255, 62, 117);
+}
+
+form {
+    margin-bottom: 5px;
+}
+
+#tab-1 {
+    width: 165px;
+}
+
+#tab-2 {
+    width: 70px;
+}
+
+#tab-3 {
+    width: 85px;
+}
+
+#codeblock {
+    background-color:#262626;
+}
+
+.description {
+    color: #a1a1a1;
+}
+
+#spoiler {
+    white-space: nowrap;
+    position: relative;
+    height: 250px;
+    background-color:black;
+    border: 1px solid #515151;
+    margin-top: -16px;
+    margin-left: 5.3%;
+    width: 45%;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    margin-left: 13%;
+    margin-top: -24px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar {
+    padding: 0px;
+    line-height: 10px;
+}
+
+#navbar_btn {
+    padding: 6px;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.post-title-button {
+    outline: none;
+    margin-top: -59px;
+    margin-left: 5.3%;
+    width: 45%;
+    text-align: left;
+}
+
+#post-databar {
+    z-index: 0;
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    top: 200;
+    right: 0;
+    bottom: 5;
+    left: 0;
+    background-color: #101010;
+    padding-top: 0.4%;
+    padding-right: 0.8%;
+    text-align: right;
+}
+
+.post-databar-button {
+    width: 70px;
+    height: 35px;
+    font-size: 21px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.post-content {
+    color:white ;
+    font-family: "proggy";
+    font-size:27px;
+    margin-bottom: -60px;
+}
+
+#post-preview {
+    position: fixed;
+    top: auto;
+    right: 10%;
+    width: 30%;
+    height: 85%;
+    background-color: black;
+    padding: 50px;
+    padding-left: 10%;
+    border: 1px solid rgb(66, 66, 66);;
+    border-left-style: solid;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-top-style: none;
+    overflow: auto;
+}
+
+.centralized {
+    text-align: center;
+}
+
+.oneline {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.createPost {
+    outline: none;
+    margin-bottom: 1.3%;
+    margin-left: 5.3%;
+    width: 45%;
+    text-align: center;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+}
+  
+*::-webkit-scrollbar-track {
+    background:#515151;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background:#262626;
+}
